@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Plugin_/Easy WiFi Controller/Scenes/Server/ControlsKitchenSinkServerScene.unity
+    guid: d2860a8d87c953549967b88b62bb99a3
+  - enabled: 0
+    path: Assets/Plugin_/Easy WiFi Controller/Scenes/Client/ControlsKitchenSinkClientScene.unity
+    guid: c9f788cd1ed835b41b6d811f282cecd4
+  - enabled: 0
+    path: Assets/Scenes/testKitchen.unity
+    guid: 61fbb263a0b14fa4593fbb1226ad1da4
+  - enabled: 0
+    path: Assets/Scenes/avatarControl.unity
+    guid: c53f77e7731554042a31b64d2c45887b
+  - enabled: 0
+    path: Assets/Scenes/test.unity
+    guid: 9c52799808f3aa044be2475f5f08f259
+  - enabled: 0
+    path: Assets/Scenes/LeftController.unity
+    guid: 1f51d0732ef5ddf4cadb3a2ff0d56dc0
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: d707fb50f242dcb439cfc6f9115e5102
+  - enabled: 1
+    path: Assets/Scenes/DwellGazeScene.unity
+    guid: f81ffe1868a6e764bab8c54d5ba76d54
+  - enabled: 1
+    path: Assets/Scenes/SmartphoneControllerScene.unity
+    guid: e7cf16cd6de498947b3652ed370674f4
+  m_configObjects: {}
