@@ -6,82 +6,79 @@ namespace Assets.Scripts
     public class ActivityTimer : MonoBehaviour
     {
         [SerializeField]
-        private Text tCounter;
+        private Text text_counter;
+        [SerializeField]
+        private TextMesh text_start;
         [SerializeField]
         private float timerCount;
         [SerializeField]
         bool beginTimer;
 
-        // Start is called before the first frame update
         void Start()
-    {
-        if(tCounter != null)
         {
-            //Do nothing
+            text_start.text = "Start";
+            if (text_counter != null) text_counter.text = timerCount.ToString("00:00");
         }
-        tCounter.text = timerCount.ToString("00:00");
-        //DisplayTime(timerCount);
-    }
 
-        // Update is called once per frame
         void Update()
-    {
-        if (!beginTimer)
         {
-            //SendTimerCount();
+            if (!beginTimer)
+            {
+            }
+            else
+            {
+                StartTimer();
+            }
         }
-        else
-        {
-            StartTimer();
-        }
-    }
         public void StartTimer()
-    {
-        timerCount += Time.deltaTime;
-        DisplayTime(timerCount);
-    }
+        {
+            timerCount += Time.deltaTime;
+            DisplayTime(timerCount);
+        }
         void DisplayTime(float timeToDisplay)
-    {
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        {
+            float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-        tCounter.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
+            text_counter.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
         public void SendTimerCount()
-    {
-        if (beginTimer)
         {
-
+            if (beginTimer)
+            {
+                print("Please pause the timer.");
+            }
+            else
+            {
+                print(text_counter.text + "Sent!");
+            }
         }
-        else
-        {
-            print(tCounter.text + "Sent!");
-        }
-    }
         public void StartPause()
-    {
-        beginTimer = !beginTimer;
+        {
+            beginTimer = !beginTimer;
 
-        if (!beginTimer)
-        {
-            GameObject.Find("/TimerSwitches/Start").GetComponent<MeshRenderer>().material.color = Color.green;
+            if (!beginTimer)
+            {
+                GameObject.Find("/TimerSwitches/Start").GetComponent<MeshRenderer>().material.color = Color.green;
+                text_start.text = "Start";
+            }
+            else
+            {
+                GameObject.Find("/TimerSwitches/Start").GetComponent<MeshRenderer>().material.color = Color.yellow;
+                text_start.text = "Pause";
+            }
         }
-        else
+        public void Reset_Timer()
         {
-            GameObject.Find("/TimerSwitches/Start").GetComponent<MeshRenderer>().material.color = Color.yellow;
-        }
-    }
-        public void Resettimer()
-    {
-        if (beginTimer)
-        {
+            if (beginTimer)
+            {
 
+            }
+            else
+            {
+                timerCount = 0;
+                text_counter.text = timerCount.ToString("00:00");
+            }
         }
-        else
-        {
-            timerCount = 0;
-            tCounter.text = timerCount.ToString("00:00");
-        }
-    }
     }
 }
